@@ -1,4 +1,4 @@
-package com.chibatching.ImgIndicatorTab;
+package com.chibatching.imgindicatortab;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
