@@ -17,6 +17,7 @@ public class ImgIndicatorTab extends View implements ViewPager.OnPageChangeListe
 
     private int mSelectedTextColor;
     private int mDeselectedTextColor;
+    private boolean mFitIndicator;
 
     private float mTextSize;
     private Drawable mIndicator;
@@ -50,6 +51,7 @@ public class ImgIndicatorTab extends View implements ViewPager.OnPageChangeListe
         float defaultTextSize = getResources().getDimension(R.dimen.iit_default_text_size);
         int defaultSelectedColor = getResources().getColor(R.color.iit_default_selected_text_color);
         int defaultDeselectedColor = getResources().getColor(R.color.iit_default_deselected_text_color);
+        boolean defaultFitIndicator = getResources().getBoolean(R.bool.iit_default_fit_indicator_with_tab);
 
         // Load style attributes
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ImgIndicatorTab, defStyle, 0);
@@ -58,6 +60,7 @@ public class ImgIndicatorTab extends View implements ViewPager.OnPageChangeListe
         setDeselectedTextColor(ta.getColor(R.styleable.ImgIndicatorTab_deselectedTextColor, defaultDeselectedColor));
         setIndicatorDrawable(ta.getDrawable(R.styleable.ImgIndicatorTab_indicatorDrawable));
         setTextSize(ta.getDimension(R.styleable.ImgIndicatorTab_android_textSize, defaultTextSize));
+        setFitIndicator(ta.getBoolean(R.styleable.ImgIndicatorTab_fitIndicatorWithTabWidth, defaultFitIndicator));
 
         int background = ta.getResourceId(R.styleable.ImgIndicatorTab_android_background, 0);
         if (background != 0) {
@@ -122,6 +125,14 @@ public class ImgIndicatorTab extends View implements ViewPager.OnPageChangeListe
         mTextSize = textSize;
         mSelectedTextPaint.setTextSize(mTextSize);
         mDeselectedTextPaint.setTextSize(mTextSize);
+    }
+
+    public boolean isFitIndicator() {
+        return mFitIndicator;
+    }
+
+    public void setFitIndicator(boolean fitIndicator) {
+        mFitIndicator = fitIndicator;
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener listener) {
@@ -198,12 +209,16 @@ public class ImgIndicatorTab extends View implements ViewPager.OnPageChangeListe
             canvas.drawText(text, 0, text.length(), textX, textY, textPaint);
         }
 
+        if (mIndicator == null) {
+            return;
+        }
+
         Bitmap indicatorBitmap = ((BitmapDrawable) mIndicator).getBitmap();
         int bitmapWidth = indicatorBitmap.getWidth();
         int bitmapHeight = indicatorBitmap.getHeight();
 
         float scale = 1f;
-        if (bitmapWidth > tabWidth) {
+        if (mFitIndicator || bitmapWidth > tabWidth) {
             scale = tabWidth / bitmapWidth;
         }
         if (bitmapHeight * scale > getHeight()) {

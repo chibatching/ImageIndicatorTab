@@ -4,6 +4,7 @@
         <attr name="selectedTextColor" format="color" />
         <attr name="deselectedTextColor" format="color" />
         <attr name="indicatorDrawable" format="reference" />
+        <attr name="fitIndicatorWithTabWidth" format="boolean" />
         <attr name="android:textSize" />
         <attr name="android:background" />
     </declare-styleable>

@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ImgIndicatorTabSample.iml" filepath="$PROJECT_DIR$/ImgIndicatorTabSample.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Imgindicatortab.iml" filepath="$PROJECT_DIR$/Imgindicatortab.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/imgindicatortab.iml" filepath="$PROJECT_DIR$/imgindicatortab.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
