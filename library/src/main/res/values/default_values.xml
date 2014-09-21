@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="iit_default_text_size">18sp</dimen>
+    <color name="iit_default_selected_text_color">#0086ff</color>
+    <color name="iit_default_deselected_text_color">#333333</color>
+</resources>
