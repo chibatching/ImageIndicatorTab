@@ -41,6 +41,7 @@ public class ImgIndicatorTab extends View implements ViewPager.OnPageChangeListe
     private ViewPager mViewPager;
     private ViewPager.OnPageChangeListener mListener;
     private int mCurrentPage;
+    private int mTextCurrentPage;
     private int mScrollState;
     private float mPositionOffset;
 
@@ -104,6 +105,7 @@ public class ImgIndicatorTab extends View implements ViewPager.OnPageChangeListe
     public void setCurrentItem(int position) {
         mViewPager.setCurrentItem(position);
         mCurrentPage = position;
+        mTextCurrentPage = position;
         invalidate();
     }
 
@@ -177,6 +179,7 @@ public class ImgIndicatorTab extends View implements ViewPager.OnPageChangeListe
 
     @Override
     public void onPageSelected(int position) {
+        mTextCurrentPage = position;
         if (mScrollState == ViewPager.SCROLL_STATE_IDLE) {
             mCurrentPage = position;
             invalidate();
@@ -211,7 +214,7 @@ public class ImgIndicatorTab extends View implements ViewPager.OnPageChangeListe
             CharSequence text = mViewPager.getAdapter().getPageTitle(i);
 
             Paint textPaint;
-            if (mCurrentPage == i) {
+            if (mTextCurrentPage == i) {
                 textPaint = mSelectedTextPaint;
             } else {
                 textPaint = mDeselectedTextPaint;
