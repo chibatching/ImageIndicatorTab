@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ImgIndicatorTab">
+        <attr name="selectedTextColor" format="color" />
+        <attr name="deselectedTextColor" format="color" />
+        <attr name="indicatorDrawable" format="reference" />
+        <attr name="fitIndicatorWithTabWidth" format="boolean" />
+        <attr name="android:textSize" />
+        <attr name="android:background" />
+    </declare-styleable>
+</resources>
