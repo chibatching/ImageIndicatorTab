@@ -1,7 +1,8 @@
-ImgIndicatorTab
+ImageIndicatorTab
 ===============
 
-This is a library to make tabs for ViewPager with indicator image you want to show.
+ImageIndicatorTab is a library to make tabs for ViewPager with indicator image you want to show.  
+This library supports Android API from 9 to 19, and both support v4 and v13 ViewPager .
 
 ![Screenshot 1](https://raw.github.com/wiki/chibatching/ImgIndicatorTab/images/screenshot.png)
 
