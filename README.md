@@ -5,7 +5,7 @@ This is a library to make tabs for ViewPager with indicator image you want to sh
 
 ![Screenshot 1](https://raw.github.com/wiki/chibatching/ImgIndicatorTab/images/screenshot.png)
 
-# Usage
+## Usage
 
 In layout xml.
 
@@ -44,5 +44,5 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-# License
+## License
 This library is licensed under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
