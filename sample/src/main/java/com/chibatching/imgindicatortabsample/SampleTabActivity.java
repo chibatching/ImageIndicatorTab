@@ -1,3 +1,19 @@
+/*
+ * Copyright 2014 Takao Chiba
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.chibatching.imgindicatortabsample;
 
 import android.graphics.Color;
@@ -21,19 +37,8 @@ import java.util.Locale;
 
 public class SampleTabActivity extends ActionBarActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
     SectionsPagerAdapter mSectionsPagerAdapter;
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     ViewPager mViewPager;
 
     @Override
@@ -49,6 +54,7 @@ public class SampleTabActivity extends ActionBarActivity {
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        // Set up the ImgIndicatorTab with ViewPager
         ImgIndicatorTab imgIndicatorTab = (ImgIndicatorTab) findViewById(R.id.indicatorTab);
         imgIndicatorTab.setViewPager(mViewPager);
     }
@@ -113,20 +119,9 @@ public class SampleTabActivity extends ActionBarActivity {
         }
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
     public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
@@ -143,6 +138,7 @@ public class SampleTabActivity extends ActionBarActivity {
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_sample_tab, container, false);
 
+            // Fragment background color changes depending on the page number
             RelativeLayout rl_root = (RelativeLayout) rootView.findViewById(R.id.parent);
             switch (getArguments().getInt(ARG_SECTION_NUMBER, 0)) {
                 case 0:
