@@ -3,8 +3,7 @@ ImgIndicatorTab
 
 This is a library to make tabs for ViewPager with indicator image you want to show.
 
-![Screenshot 1](https://raw.github.com/wiki/chibatching/ImgIndicatorTab/images/screenshot1.png)  
-![Screenshot 2](https://raw.github.com/wiki/chibatching/ImgIndicatorTab/images/screenshot2.png)
+![Screenshot 1](https://raw.github.com/wiki/chibatching/ImgIndicatorTab/images/screenshot.png)
 
 # Usage
 
