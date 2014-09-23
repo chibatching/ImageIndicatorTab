@@ -1,10 +1,19 @@
 ImageIndicatorTab
 ===============
 
-ImageIndicatorTab is a library to make tabs for ViewPager with indicator image you want to show.  
+## Introduction
+
+ImageIndicatorTab is a widget to make tabs for ViewPager with indicator image you want to show.  
 This library supports Android API from 9 to 19, and both support v4 and v13 ViewPager .
 
 ![Screenshot 1](https://raw.github.com/wiki/chibatching/ImgIndicatorTab/images/screenshot.png)
+
+You can add the tab in the middle or bottom of your layout as you wish.
+
+![Screenshot 3](https://raw.github.com/wiki/chibatching/ImgIndicatorTab/images/screenshot3.png)
+![Screenshot 2](https://raw.github.com/wiki/chibatching/ImgIndicatorTab/images/screenshot2.png)
+
+
 
 ## Usage
 
@@ -23,7 +32,7 @@ In layout xml.
     imgtab:fitIndicatorWithTabWidth="true" />
 ```
 
-In activity or fragment, ImgIndicatorTab should be attached ViewPager.
+In activity's onCreate (or fragment's onCreateView), ImgIndicatorTab should be attached ViewPager.
 
 ```Java
 @Override
@@ -44,6 +53,16 @@ protected void onCreate(Bundle savedInstanceState) {
     imgIndicatorTab.setViewPager(mViewPager);
 }
 ```
+
+## XML parameters
+In layout xml, you can set some parameters.
+
+|param|value|
+|:--:|:--:|
+|selectedTextColor|Text color when tab selected|
+|deselectedTextColor|Text color when tab **not** selected|
+|indicatorDrawable|Indicator image drawable|
+|fitIndicatorWithTabWidth|Whether scale indicator image to fit tab width<br/>(but not exceed tab height)|
 
 ## License
 This library is licensed under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
