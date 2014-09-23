@@ -16,7 +16,6 @@
 
 package com.chibatching.imgindicatortabsample;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -24,14 +23,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.chibatching.imgindicatortab.ImgIndicatorTab;
-
-import java.util.Locale;
 
 
 public class SampleTabActivity extends ActionBarActivity {
@@ -58,14 +54,6 @@ public class SampleTabActivity extends ActionBarActivity {
         imgIndicatorTab.setViewPager(mViewPager);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.sample_tab, menu);
-        return true;
-    }
-
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -76,7 +64,7 @@ public class SampleTabActivity extends ActionBarActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            return PlaceholderFragment.newInstance(position);
         }
 
         @Override
@@ -87,14 +75,13 @@ public class SampleTabActivity extends ActionBarActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            Locale l = Locale.getDefault();
             switch (position) {
                 case 0:
-                    return getString(R.string.title_section1).toUpperCase(l);
+                    return getString(R.string.title_section1);
                 case 1:
-                    return getString(R.string.title_section2).toUpperCase(l);
+                    return getString(R.string.title_section2);
                 case 2:
-                    return getString(R.string.title_section3).toUpperCase(l);
+                    return getString(R.string.title_section3);
             }
             return null;
         }
@@ -120,16 +107,20 @@ public class SampleTabActivity extends ActionBarActivity {
             View rootView = inflater.inflate(R.layout.fragment_sample_tab, container, false);
 
             // Fragment background color changes depending on the page number
-            RelativeLayout rl_root = (RelativeLayout) rootView.findViewById(R.id.parent);
+            TextView txt_title = (TextView) rootView.findViewById(R.id.txt_title);
+            TextView txt_content = (TextView) rootView.findViewById(R.id.txt_content);
             switch (getArguments().getInt(ARG_SECTION_NUMBER, 0)) {
                 case 0:
-                    rl_root.setBackgroundColor(Color.GREEN);
+                    txt_title.setText(R.string.photo_title);
+                    txt_content.setText(R.string.photo_description);
                     break;
                 case 1:
-                    rl_root.setBackgroundColor(Color.BLUE);
+                    txt_title.setVisibility(View.GONE);
+                    txt_content.setText(R.string.photo_data);
                     break;
                 case 2:
-                    rl_root.setBackgroundColor(Color.RED);
+                    txt_title.setVisibility(View.GONE);
+                    txt_content.setText(R.string.photo_tag);
                     break;
             }
 
